@@ -158,7 +158,6 @@ document.getElementById("defaultOpen").click();
 .page-content {
 max-width: 2400px; /* Adjust to your desired width */
 margin: 0 auto;    /* Centers the content horizontally */
-padding: 0 20px;   /* Adds a bit of padding on sides */
 }
 
 .tabs {
