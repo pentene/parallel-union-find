@@ -92,21 +92,24 @@ PSC machines offer robust CPU and GPU capabilities for detailed performance prof
 
 Here is our current reference:
 
-- Tomasi, C., & Manduchi, R. (1998). Bilateral filtering for gray and color images. Proceedings of the Sixth International Conference on Computer Vision, 839–846.
+- Fedorov, A., Hashemi, D., Nadiradze, G., and Alistarh, D. (2023). Provably-efficient
+and internally-deterministic parallel union-find. In Proceedings of the 35th ACM Sym-
+posium on Parallelism in Algorithms and Architectures (SPAA ’23), Orlando, FL,
+USA, June 17–19, 2023. Association for Computing Machinery. https://doi.org/
+10.1145/3558481.3591082
 
-- Paris, S., & Durand, F. (2006). A fast approximation of the bilateral filter using a signal processing approach. European Conference on Computer Vision, 568–580.
-
-- Paris, S., Kornprobst, P., Tumblin, J., & Durand, F. (2009). Bilateral filtering: Theory and applications. Foundations and Trends in Computer Graphics and Vision, 4(1), 1–73.
-
-- [Nvidia documentation on bilateral filtering](https://docs.nvidia.com/vpi/algo_bilat_filter.html)
+- Anderson, R. J., and Woll, H. (1991). Wait-free parallel algorithms for the union–find
+problem. In Proceedings of the 23rd Annual ACM Symposium on Theory of Computing
+(STOC ’91), pp. 370–380. Association for Computing Machinery. https://doi.org/
+10.1145/103418.103458
 
 ---
 
 ## Platform Choice
 
-The GHC lab machines and PSC machines provide multi-core CPUs and GPU resources
+The GHC lab machines and PSC machines provide multi-core CPUs resources
 suitable for our parallel implementations. GHC machines will facilitate development and
-initial testing, while the powerful GPU systems at PSC will enable detailed performance
+initial testing, while the powerful CPU systems at PSC will enable detailed performance
 profiling and large-scale experimentation.
 
 ---

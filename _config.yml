@@ -17,7 +17,7 @@ remote_theme: "mmistakes/so-simple-theme@3.2.0"
 # remote_theme: mmistakes/so-simple-theme
 skin: "/assets/css/skins/default.css"
 locale: en-US
-title: "Spring 2024 15418 Final Project Website"
+title: "Spring 2025 15418 Final Project Website"
 description: "By Zhaowei Zhang and Eric Zhu"
 baseurl: # the subpath of your site, e.g. "/blog"
 url: # the base hostname & protocol for your site e.g. "https://mmistakes.github.io"
