@@ -88,7 +88,7 @@ and efficient optimization strategies tailored for shared-memory multicore syste
 ## Resources
 
 Implementation and benchmarking will be performed primarily on GHC lab machines and Pittsburgh Supercomputing Center (PSC) resources. Initial sequential implementations will be verified against OpenCV’s bilateral filter for correctness. 
-PSC machines offer robust CPU and GPU capabilities for detailed performance profiling and large-scale experimentation.
+PSC machines offer robust CPU capabilities for detailed performance profiling and large-scale experimentation.
 
 Here is our current reference:
 
@@ -118,11 +118,11 @@ profiling and large-scale experimentation.
 
 |   Week   | Planned Acrivity |
 | -------- | ------- |
-| 3.26 - 4.2  | Implement serial version of bilateral filter; begin OpenMP parallelization |
-| 4.2 - 4.9   | Analyze CPU performance, identify bottlenecks, and optimize OpenMP parallelization using course techniques |
-| 4.9 - 4.16  | Develop initial CUDA implementation; perform GPU profiling and identify bottlenecks |
-| 4.16 - 4.23 | Optimize CUDA implementation based on analysis; evaluate GPU performance improvements |
-| 4.23 - 4.28 | Finalize benchmarking results, prepare poster and presentation materials |
+| 3.26 - 4.2  | Update Proposal |
+| 4.2 - 4.9   | Implement serial Union-Find and coarse-grained locks. Design and generate different workloads. |
+| 4.9 - 4.16  | Implement fine-grained locks and lock-free Union-Find. Evaluate CPU scalability under diverse workloads. |
+| 4.16 - 4.23 | Finish the implementations. Test on real-world workloads and analyze performance. |
+| 4.23 - 4.28 | Finalize benchmarking across all implementations. Analyze trade-offs of locking strategies across workloads. Generate figures for performance comparisons. |
 | 4.29        | Poster session |
 
 </div>
