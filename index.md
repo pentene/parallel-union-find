@@ -10,7 +10,7 @@
 <!-- Put your Overview Markdown content here -->
 <h2>Project Overview</h2>
 
-# Parallel Bilateral Filtering Implementation and Optimization
+# Parallel Union Find
 
 ---
 <!-- 
@@ -25,19 +25,18 @@ Zhaowei Zhang, Eric Zhu -->
 
 ## Summary
 
-In this project, we will implement optimized parallel versions of the bilateral filtering algorithm on CPU and GPU platforms, specifically using **OpenMP** and **CUDA**, respectively. We aim to benchmark these implementations rigorously, analyzing their performance characteristics and scalability across diverse optimization strategies and hardware configurations.
+In this project, we will explore different lock techniques of the Union-find data structure, specifically coarse-grained lock, fine-grained lock, and lock-free along with Union-Find
+specific optimizations (path compression, union by rank). We aim to benchmark these implementations rigorously, analyzing their performance characteristics and scalability compared
+to the serialized version. Finally, we plan to test our implementation in different graph algorithms to further analyze its performance in real-world applications.
 
 ---
 
 ## Background
 
-Bilateral filtering is a widely-used image processing technique known for its effectiveness in smoothing images while preserving edges. This edge-preserving smoothing is accomplished
-by calculating the filtered value for each pixel as a weighted average of neighboring pixels, considering both spatial proximity and intensity similarity.
-
-The bilateral filter’s per-pixel computation involves intensive arithmetic operations and memory access, making it computationally expensive, particularly with large neighborhood
-windows or high-resolution images. Each pixel’s computation involves accessing neighboring pixels within a defined radius repeatedly. Nonetheless, it exhibits good potential for par-
-allelization since each pixel’s final output computation is independent of other pixels, even though there are neighborhood dependencies. Exploiting parallelism through CPU multi-
-threading (OpenMP) and GPU massive threading (CUDA) can reduce execution time and enhance efficiency.
+The Union-Find data structure is essential in applications that require efficient detection of connectivity, such as clustering, graph connectivity, and image segmentation. The two
+fundamental operations are find and union. Parallelizing these operations requires careful handling of concurrent access to shared memory structures, along with optimizations such as
+path compression and union by rank. Parallelism combined with these optimizations significantly enhances performance for
+large-scale sets. Efficient synchronization must be paired with effective optimizations to achieve peak performance
 
 ---
 
@@ -45,43 +44,44 @@ threading (OpenMP) and GPU massive threading (CUDA) can reduce execution time an
 
 Planned Goals:
 
-- Achieve at least a 4x speedup with CPU parallelization using OpenMP compared to the sequential baseline.
+- Implement Multiple parallel implementations on CPU with OpenMP using coarse-grained lock, fine-grained lock, and lock-free techniques.
 
-- Achieve at least a 10x speedup with GPU parallelization using CUDA compared to the sequential baseline.
+- Implementation of Union-Find optimizations (path compression, union by rank) along with synchronization methods
 
-- Perform a thorough comparative analysis of performance and scalability between CPU and GPU implementations using image datasets such as High Resolution Image Quality (HRIQ) and The USC-SIPI Image Database.
-
-- Validate correctness by comparing results with the OpenCV bilateral filtering implementation.
+- Measure and compare throughput, latency, and scalability of each synchronization and optimization method on CPU under diverse workloads, including: varying graph sizes and densities (sparse, dense),
+different access patterns (find-heavy, union-heavy workloads), and real-world datasets.
 
 Aspirational Goals:
 
-- Achieve a 10x speedup on CPU with robust scalability across varying image sizes.
+- Investigate dynamic selection of locking vs. lock-free approaches depending on workload size or distribution.
 
-- Achieve a speedup exceeding 50x on GPU through advanced optimizations such as FFT-based fast convolution techniques inspired by Sylvain Paris and Frédo Durand's work ("A Fast Approximation of the Bilateral Filter using a Signal Processing Approach").
+- Demonstrate parallel Union-Find performance improvements in practical applications such as image segmentation or network analysis.
 
 Fallback Goals:
 
-- Ensure fully functional parallel implementations with measured performance gains, even if the desired speedup targets are not fully met.
+- Focus on fewer synchronization methods and optimizations with a thorough performance analysis.
 
-- Complete rigorous analysis clearly identifying bottlenecks and documenting performance insights.
+- Identify the potential bottlenecks in the parallel algorithms. 
 
 ---
 
 ## Challenges
 
-Parallelizing bilateral filtering is challenging due to several critical factors:
+Parallelizing and optimizing Union-Find using OpenMP on CPUs presents several signif-
+icant challenges, driven primarily by workload characteristics, synchronization complexity,
+and architectural constraints:
 
-- Workload dependencies: Pixel computations involve accessing neighboring pixels within a defined spatial radius. However, each pixel’s output calculation remains independent, allowing parallel computation.
+- Workload Characteristics: While many find and union operations can run concurrently, conflicts can arise when multiple threads simultaneously update shared structures (parent and rank arrays). Proper synchronization methods must mitigate these conflicts without severely limiting concurrency. And this is one important field we will be testing on.
 
-- Memory access characteristics: Effective use of cache-aware techniques and shared memory optimizations is critical to exploit locality.
+- Memory access characteristics: Union-Find operations, especially with path compression, lead to irregular memory access patterns. These irregular accesses result in scattered memory reads and writes, limiting cache performance and reducing locality.
 
-- Communication-to-Computation ratio: Frequent memory accesses can dominate execution without effective optimization. Using caching or shared memory significantly lowers this ratio.
+- Communication-to-Computation ratio: Despite the simplicity of union-find computations, synchronization overhead can dominate performance, particularly with frequent concurrent updates.
 
-- Divergent execution: Intensity-dependent calculations within the bilateral filter can lead to divergent execution patterns, particularly on GPUs.
+- Divergent execution: The pointer-chasing nature of Union-Find, particularly path compression, inherently generates unpredictable branching and memory access, complicating optimization and efficient parallel execution on CPUs.
 
-- System constraints: GPU shared memory and CPU cache capacities heavily impact performance. Exceeding capacities necessitates frequent global memory accesses, degrading performance.
-
-Through addressing these challenges, we aim to gain deep insights into optimizing memory access patterns, synchronization overhead, and computational efficiency in parallel systems.
+By addressing these challenges specifically within the context of OpenMP, we aim to
+deepen our understanding of parallel programming principles, synchronization mechanisms,
+and efficient optimization strategies tailored for shared-memory multicore systems.
 
 ---
 
