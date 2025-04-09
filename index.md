@@ -87,8 +87,9 @@ and efficient optimization strategies tailored for shared-memory multicore syste
 
 ## Resources
 
-Implementation and benchmarking will be performed primarily on GHC lab machines and Pittsburgh Supercomputing Center (PSC) resources. Initial sequential implementations will be verified against OpenCV’s bilateral filter for correctness. 
-PSC machines offer robust CPU capabilities for detailed performance profiling and large-scale experimentation.
+Implementation and benchmarking will be performed primarily on GHC lab machines
+and Pittsburgh Supercomputing Center (PSC) resources. PSC machines offer robust CPU
+capabilities for detailed performance profiling and large-scale experimentation.
 
 Here is our current reference:
 
