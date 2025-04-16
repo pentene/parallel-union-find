@@ -1,7 +1,8 @@
 <!-- Tab Navigation -->
 <div class="tabs">
   <button class="tablinks" onclick="openTab(event, 'overview')" id="defaultOpen">Overview</button>
-  <button class="tablinks" onclick="openTab(event, 'report')">Project Report (PDF)</button>
+  <button class="tablinks" onclick="openTab(event, 'report')">Project Proposal (PDF)</button>
+  <button class="tablinks" onclick="openTab(event, 'report')">Milestone Report (PDF)</button>
 </div>
 
 <!-- Tab Contents -->
@@ -56,6 +57,8 @@ Aspirational Goals:
 - Investigate dynamic selection of locking vs. lock-free approaches depending on workload size or distribution.
 
 - Demonstrate parallel Union-Find performance improvements in practical applications such as image segmentation or network analysis.
+
+- Implement the parallel data structure using MPI.
 
 Fallback Goals:
 
@@ -119,17 +122,23 @@ profiling and large-scale experimentation.
 
 |   Week   | Planned Acrivity |
 | -------- | ------- |
-| 3.26 - 4.2  | Update Proposal |
-| 4.2 - 4.9   | Implement serial Union-Find and coarse-grained locks. Design and generate different workloads. |
-| 4.9 - 4.16  | Implement fine-grained locks and lock-free Union-Find. Evaluate CPU scalability under diverse workloads. |
-| 4.16 - 4.23 | Finish the implementations. Test on real-world workloads and analyze performance. |
-| 4.23 - 4.28 | Finalize benchmarking across all implementations. Analyze trade-offs of locking strategies across workloads. Generate figures for performance comparisons. |
+| 3.26 - 4.8  | Update Proposal |
+| 4.9 - 4.15  | Implement serial Union-Find and coarse-grained locks. Design test cases to verify correctness. |
+| 4.16 - 4.19 | Implement fine-grained locks (Eric Zhu) and lock-free Union-Find. (Zhaowei Zhang) |
+| 4.20 - 4.22 | Evaluate CPU scalability under diverse workloads and evaluate again after optimizations. (Eric Zhu) Perform optimizations to aline with goals. (Zhaowei Zhang) |
+| 4.23 - 4.25 | Test on real-world workloads and analyze performance. (Eric Zhu) Attempt on implementing using MPI (if possible, Zhaowei Zhang) |
+| 4.26 -4.28  | Analyze trade-offs of locking strategies across workloads. (Zhaowei Zhang) Generate figures for performance comparisons. (Eric Zhu) |
 | 4.29        | Poster session |
 
 </div>
 
 <div id="report" class="tabcontent">
-  <h2>Project Report</h2>
+  <h2>Project Proposal</h2>
+  <iframe src="assets/15418_Project_Proposal.pdf" width="100%" height="800px"></iframe>
+</div>
+
+<div id="report" class="tabcontent">
+  <h2>Milestone Report</h2>
   <iframe src="assets/15418_Project_Proposal.pdf" width="100%" height="800px"></iframe>
 </div>
 
