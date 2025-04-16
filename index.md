@@ -134,12 +134,12 @@ profiling and large-scale experimentation.
 
 <div id="report" class="tabcontent">
   <h2>Project Proposal</h2>
-  <iframe src="assets/15418_Project_Proposal.pdf" width="100%" height="800px"></iframe>
+  <iframe src="assets/15418_Project_Proposal.pdf" width="150%" height="800px"></iframe>
 </div>
 
 <div id="report" class="tabcontent">
   <h2>Milestone Report</h2>
-  <iframe src="assets/15418_Project_Proposal.pdf" width="100%" height="800px"></iframe>
+  <iframe src="assets/15418_Milestone_Report.pdf" width="150%" height="800px"></iframe>
 </div>
 
 <script>
