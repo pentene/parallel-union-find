@@ -3,6 +3,7 @@
   <button class="tablinks" onclick="openTab(event, 'overview')" id="defaultOpen">Overview</button>
   <button class="tablinks" onclick="openTab(event, 'report')">Project Proposal (PDF)</button>
   <button class="tablinks" onclick="openTab(event, 'report2')">Milestone Report (PDF)</button>
+  <button class="tablinks" onclick="openTab(event, 'report3')">Final Report (PDF)</button>
 </div>
 
 <!-- Tab Contents -->
@@ -140,6 +141,11 @@ profiling and large-scale experimentation.
 <div id="report2" class="tabcontent">
   <h2>Milestone Report</h2>
   <iframe src="assets/15418_Milestone_Report.pdf" width="150%" height="800px"></iframe>
+</div>
+
+<div id="report3" class="tabcontent">
+  <h2>Final Report</h2>
+  <iframe src="assets/15418_final_report.pdf" width="150%" height="800px"></iframe>
 </div>
 
 <script>
